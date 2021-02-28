@@ -18,6 +18,12 @@ class Tareas{
         this._listado = {}
     }
 
+    borrarTarea( id = ''){
+        if( this._listado[id]){
+            delete this._listado[id];
+        }
+    }
+
     listarPendientesCompletadas( completadas = true ){
         console.log("\n");
         let contador = 0;
@@ -66,7 +72,5 @@ class Tareas{
         this._listado[tarea.id] = tarea;
     }
 }
-
-
 
 module.exports = Tareas;
