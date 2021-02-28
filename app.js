@@ -1,5 +1,5 @@
 
-const { inquirerMenu, pausa } = require("./helpers/inquirer");
+const { inquirerMenu, pausa, leerInput } = require("./helpers/inquirer");
 const Tarea = require("./helpers/models/tarea");
 const Tareas = require("./helpers/models/tareas");
 
@@ -10,11 +10,22 @@ const main = async() => {
     
     let opt = "";
     let mensaje = "";
+    const tareas = new Tareas();
 
     do{
-        
+     
         opt = await inquirerMenu();
-        console.log({opt});
+        
+        switch (opt) {
+            case "1":
+                const desc = await leerInput("Descripcion: ");
+                tareas.crearTarea(desc);
+                break;
+
+            case "2":
+                console.log(tareas._listado);
+                break;
+        }
 
         await pausa();
 
