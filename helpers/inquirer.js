@@ -39,6 +39,8 @@ const preguntas = [
     }
 ];
 
+
+
 const inquirerMenu  = async() => {
     console.clear();
     console.log("===========================".green);
@@ -51,7 +53,13 @@ const inquirerMenu  = async() => {
 }
 
 const pausa = async() => {
-
+    const question = [{
+        type: 'int',
+        name: 'enter',
+        message: `Presione ${'[ENTER]'.green} para continuar`,
+    }]
+    console.log("\n");
+    await inquirer.prompt(question);
 }
 
 module.exports = {
