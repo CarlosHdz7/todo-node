@@ -36,7 +36,7 @@ class Tareas{
             if(completadas) {
                 if(completadoEn) {
                     contador += 1;
-                    console.log(`${contador.toString().green} ${descripcion} :: ${completadoEn}`);
+                    console.log(`${contador.toString().green} ${descripcion} :: ${completadoEn.green}`);
                 }
             }else{
                 if(!completadoEn)  {
@@ -70,6 +70,21 @@ class Tareas{
     crearTarea(desc = ""){
         const tarea = new Tarea(desc);
         this._listado[tarea.id] = tarea;
+    }
+
+    toggleCompletadas(ids = []){
+        ids.forEach(id => {
+            const tarea = this._listado[id];
+            if(!tarea.completadoEn){
+                tarea.completadoEn = new Date().toISOString();
+            }
+        });
+
+        this.listadoArray.forEach( tarea => {
+            if(!ids.includes(tarea.id)){
+                this._listado[tarea.id].completadoEn = null;
+            }
+        });
     }
 }
 
