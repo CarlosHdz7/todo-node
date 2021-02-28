@@ -1,7 +1,8 @@
 
+const { guardaDB } = require("./helpers/guardarArchivo");
 const { inquirerMenu, pausa, leerInput } = require("./helpers/inquirer");
-const Tarea = require("./helpers/models/tarea");
-const Tareas = require("./helpers/models/tareas");
+const Tarea = require("./models/tarea");
+const Tareas = require("./models/tareas");
 
 
 console.clear();
@@ -23,9 +24,11 @@ const main = async() => {
                 break;
 
             case "2":
-                console.log(tareas._listado);
+                console.log(tareas.listadoArray);
                 break;
         }
+
+        guardaDB(tareas.listadoArray);
 
         await pausa();
 
