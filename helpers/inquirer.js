@@ -96,6 +96,7 @@ const listadoTareasBorrar = async( tareas = []) => {
         name:` ${"0".green} Cancelar`
     });
 
+    
     const preguntas = [
         {
             type: "list",
