@@ -18,6 +18,30 @@ class Tareas{
         this._listado = {}
     }
 
+    listarPendientesCompletadas( completadas = true ){
+        console.log("\n");
+        let contador = 0;
+
+        this.listadoArray.forEach( (tarea ) => {
+
+            const { descripcion, completadoEn } = tarea;
+            const estado = (completadoEn) ? "Completada".green : "Incompleta".red
+
+            if(completadas) {
+                if(completadoEn) {
+                    contador += 1;
+                    console.log(`${contador.toString().green} ${descripcion} :: ${completadoEn}`);
+                }
+            }else{
+                if(!completadoEn)  {
+                    contador += 1;
+                    console.log(`${contador.toString().green} ${descripcion} :: ${estado}`);
+                }
+            }
+ 
+        });
+    }
+
     listadoCompleto(){
         console.log("\n");
         this.listadoArray.forEach( (tarea, i ) => {
