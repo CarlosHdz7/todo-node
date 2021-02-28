@@ -1,7 +1,6 @@
 
 const { guardaDB, leerDB } = require("./helpers/guardarArchivo");
 const { inquirerMenu, pausa, leerInput, listadoTareasBorrar, confirmar, mostrarListadoCompletadas } = require("./helpers/inquirer");
-const Tarea = require("./models/tarea");
 const Tareas = require("./models/tareas");
 
 
@@ -62,9 +61,3 @@ const main = async() => {
 };
 
 main();
-
-// Codigo para guardar una lista
-// const tarea = new Tarea("hola");
-// const tareas = new Tareas();
-// tareas._listado[tarea.id] = tarea;
-// console.log(tareas);
